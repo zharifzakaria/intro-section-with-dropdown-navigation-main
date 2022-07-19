@@ -13,7 +13,7 @@
 
   <nav>
     <div class="logo"><img src="./images/logo.svg" alt="logo" width="120px" class="logo__img"></div>
-    <div class="menu">
+    <div class="menu desktop-only">
       <ul class="menu__list">
         <li id="features" class="menu__list__item">Features <svg width="10" height="6" xmlns="http://www.w3.org/2000/svg"><path stroke="currentColor" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4"/></svg></li>
         <li id="company" class="menu__list__item">Company <svg width="10" height="6" xmlns="http://www.w3.org/2000/svg"><path stroke="currentColor" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4"/></svg></li>
@@ -39,11 +39,15 @@
       </div>
       
     </div>
-    <div class="user">
+    <div class="user desktop-only">
       <ul class="user__list">
         <li class="user__list__item">Login</li>
         <li class="user__list__item button">Register</li>
       </ul>
+    </div>
+
+    <div class="mobile-menu mobile-only">
+      <svg width="32" height="18" xmlns="http://www.w3.org/2000/svg"><g fill="#151515" fill-rule="evenodd"><path d="M0 0h32v2H0zM0 8h32v2H0zM0 16h32v2H0z"/></g></svg>
     </div>
   </nav>
 
@@ -68,9 +72,7 @@
       </div>
     </div>
 
-    <div class="featured-image">
-      <img src="./images/image-hero-desktop.png" alt="image-hero-desktop">
-    </div>
+    <div class="featured-image"></div>
   </main>
 </body>
 
