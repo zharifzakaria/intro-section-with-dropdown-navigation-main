@@ -8,6 +8,7 @@ body {
   margin: 0 auto;
   font-family: "Epilogue", sans-serif;
   font-size: 16px;
+  background-color: #fafafa;
 }
 
 nav {
@@ -19,11 +20,16 @@ nav {
   padding-top: 50px;
 }
 
+nav .logo {
+  padding-right: 40px;
+}
+
 nav .logo img {
   transform: translateY(7px);
 }
 
 nav .menu {
+  position: relative;
   flex-grow: 2;
 }
 
@@ -33,10 +39,112 @@ nav .menu__list {
   list-style-type: none;
 }
 
+nav .menu__list__item {
+  color: dimgray;
+  padding-right: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+nav .menu__list__item:hover {
+  color: #141414;
+}
+
+nav .menu__list__sub1, nav .menu__list__sub2 {
+  display: none;
+  position: absolute;
+  left: -35px;
+  border-radius: 8px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+nav .menu__list__sub1 .sub__menu, nav .menu__list__sub2 .sub__menu {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  list-style-type: none;
+  padding: 28px 20px;
+}
+
+nav .menu__list__sub1 .sub__menu .sub__item, nav .menu__list__sub2 .sub__menu .sub__item {
+  color: dimgray;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+nav .menu__list__sub1 .sub__menu .sub__item:hover, nav .menu__list__sub2 .sub__menu .sub__item:hover {
+  color: #141414;
+}
+
+nav .menu__list__sub1 .sub__menu .sub__item:last-child, nav .menu__list__sub2 .sub__menu .sub__item:last-child {
+  padding-bottom: 0;
+}
+
+nav .menu__list__sub1 .sub__menu .sub__item .icon, nav .menu__list__sub2 .sub__menu .sub__item .icon {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  margin-right: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+nav .menu__list__sub1 .sub__menu .sub__item .icon-todo, nav .menu__list__sub2 .sub__menu .sub__item .icon-todo {
+  background-image: url("../images/icon-todo.svg");
+}
+
+nav .menu__list__sub1 .sub__menu .sub__item .icon-calendar, nav .menu__list__sub2 .sub__menu .sub__item .icon-calendar {
+  background-image: url("../images/icon-calendar.svg");
+}
+
+nav .menu__list__sub1 .sub__menu .sub__item .icon-reminders, nav .menu__list__sub2 .sub__menu .sub__item .icon-reminders {
+  background-image: url("../images/icon-reminders.svg");
+}
+
+nav .menu__list__sub1 .sub__menu .sub__item .icon-planning, nav .menu__list__sub2 .sub__menu .sub__item .icon-planning {
+  background-image: url("../images/icon-planning.svg");
+}
+
+nav .menu__list__sub1.show, nav .menu__list__sub2.show {
+  display: block;
+}
+
+nav .menu__list__sub2 {
+  left: 150px;
+}
+
 nav .user__list {
   display: flex;
+  align-items: center;
   flex-flow: row nowrap;
   list-style-type: none;
+}
+
+nav .user__list__item {
+  color: dimgray;
+  padding-right: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+nav .user__list__item:hover {
+  color: #141414;
+}
+
+nav .user__list__item.button {
+  border: 2px solid dimgray;
+  border-radius: 14px;
+  padding: 16px 28px;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+}
+
+nav .user__list__item.button:hover {
+  background-color: #141414;
+  border: 2px solid #141414;
+  color: #fafafa;
 }
 
 main {
@@ -78,7 +186,7 @@ main .text .header button {
   border-radius: 14px;
   padding: 16px 28px;
   margin-top: 36px;
-  transition: all .3s ease-out;
+  transition: all 0.3s ease-out;
   cursor: pointer;
 }
 
@@ -92,6 +200,16 @@ main .text .logo-group img {
   padding-right: 30px;
 }
 
+main .text .logo-group .attribution {
+  font-size: 10px;
+  text-align: left;
+  padding-top: 40px;
+}
+
+main .text .logo-group .attribution a {
+  color: #4f5d96;
+}
+
 main .featured-image {
   flex-basis: 40%;
   overflow: hidden;
@@ -99,13 +217,4 @@ main .featured-image {
 
 main .featured-image img {
   width: 100%;
-}
-
-footer .attribution {
-  font-size: 11px;
-  text-align: center;
-}
-
-footer .attribution a {
-  color: #3e52a3;
 }

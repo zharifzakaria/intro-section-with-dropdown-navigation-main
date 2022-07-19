@@ -32,6 +32,7 @@ body {
   margin: 0 auto;
   font-family: "Epilogue", sans-serif;
   font-size: 16px;
+  background-color: hsl(0, 0%, 98%);
 }
 
 nav {
@@ -43,25 +44,124 @@ nav {
   padding-top: 50px;
 
   .logo {
+    padding-right: 40px;
     img {
       transform: translateY(7px);
     }
   }
 
   .menu {
+    position: relative;
     flex-grow: 2;
     &__list {
       display: flex;
       flex-flow: row nowrap;
       list-style-type: none;
+
+      &__item {
+        color: hsl(0, 0%, 41%);
+        padding-right: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease-out;
+
+        &:hover {
+          color: hsl(0, 0%, 8%);
+        }
+      }
+
+      &__sub1, &__sub2 {
+        display: none;
+        position: absolute;
+        left: -35px;
+        border-radius: 8px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+        .sub__menu {
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          list-style-type: none;
+          padding: 28px 20px;
+
+          .sub__item {
+            color: hsl(0, 0%, 41%);
+            padding-bottom:10px;
+            cursor: pointer;
+
+            &:hover {
+                color: hsl(0, 0%, 8%);
+            }
+
+            &:last-child {
+                padding-bottom: 0;
+            }
+
+            .icon {
+              display: inline-block;
+              height: 16px;
+              width: 16px;
+              margin-right: 20px;
+              background-repeat: no-repeat;
+              background-size: cover;
+              &-todo {
+                background-image: url("../images/icon-todo.svg");
+              }
+              &-calendar {
+                background-image: url("../images/icon-calendar.svg");
+              }
+              &-reminders {
+                background-image: url("../images/icon-reminders.svg");
+              }
+              &-planning {
+                background-image: url("../images/icon-planning.svg");
+              }
+            }
+          }
+        }
+
+        &.show {
+            display: block;
+        }
+
+      }
+
+      &__sub2 { left: 150px; }
     }
   }
 
   .user {
     &__list {
       display: flex;
+      align-items: center;
       flex-flow: row nowrap;
       list-style-type: none;
+
+      &__item {
+        color: hsl(0, 0%, 41%);
+        padding-right: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease-out;
+
+        &:hover {
+          color: hsl(0, 0%, 8%);
+        }
+      }
+
+      &__item.button {
+        border: 2px solid hsl(0, 0%, 41%);
+        border-radius: 14px;
+        padding: 16px 28px;
+        transition: all 0.3s ease-out;
+        cursor: pointer;
+
+        &:hover {
+          background-color: hsl(0, 0%, 8%);
+          border: 2px solid hsl(0, 0%, 8%);
+          color: hsl(0, 0%, 98%);
+        }
+      }
     }
   }
 }
@@ -101,7 +201,7 @@ main {
         border-radius: 14px;
         padding: 16px 28px;
         margin-top: 36px;
-        transition: all .3s ease-out;
+        transition: all 0.3s ease-out;
         cursor: pointer;
 
         &:hover {
@@ -116,6 +216,14 @@ main {
       img {
         padding-right: 30px;
       }
+      .attribution {
+        font-size: 10px;
+        text-align: left;
+        padding-top: 40px;
+      }
+      .attribution a {
+        color: hsl(228, 31%, 45%);
+      }
     }
   }
   .featured-image {
@@ -124,15 +232,5 @@ main {
     img {
       width: 100%;
     }
-  }
-}
-
-footer {
-  .attribution {
-    font-size: 11px;
-    text-align: center;
-  }
-  .attribution a {
-    color: hsl(228, 45%, 44%);
   }
 }

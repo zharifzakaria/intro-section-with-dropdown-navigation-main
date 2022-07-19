@@ -15,16 +15,34 @@
     <div class="logo"><img src="./images/logo.svg" alt="logo" width="120px" class="logo__img"></div>
     <div class="menu">
       <ul class="menu__list">
-        <li class="menu__list__item">Features</li>
-        <li class="menu__list__item">Company</li>
+        <li id="features" class="menu__list__item">Features <svg width="10" height="6" xmlns="http://www.w3.org/2000/svg"><path stroke="currentColor" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4"/></svg></li>
+        <li id="company" class="menu__list__item">Company <svg width="10" height="6" xmlns="http://www.w3.org/2000/svg"><path stroke="currentColor" stroke-width="1.5" fill="none" d="m1 1 4 4 4-4"/></svg></li>
         <li class="menu__list__item">Careers</li>
         <li class="menu__list__item">About</li>
       </ul>
+
+      <div id="submenu1" class="menu__list__sub1">
+        <ul class="sub__menu">
+          <li class="sub__item"><span class="icon icon-todo"></span>Todo List</li>
+          <li class="sub__item"><span class="icon icon-calendar"></span>Calendar</li>
+          <li class="sub__item"><span class="icon icon-reminders"></span>Reminders</li>
+          <li class="sub__item"><span class="icon icon-planning"></span>Planning</li>
+        </ul>
+      </div>
+
+      <div id="submenu2" class="menu__list__sub2">
+        <ul class="sub__menu">
+          <li class="sub__item">History</li>
+          <li class="sub__item">Our Team</li>
+          <li class="sub__item">Blog</li>
+        </ul>
+      </div>
+      
     </div>
     <div class="user">
       <ul class="user__list">
         <li class="user__list__item">Login</li>
-        <li class="user__list__item">Register</li>
+        <li class="user__list__item button">Register</li>
       </ul>
     </div>
   </nav>
@@ -43,6 +61,10 @@
         <img src="./images/client-audiophile.svg" alt="audiophile">
         <img src="./images/client-meet.svg" alt="meet">
         <img src="./images/client-maker.svg" alt="maker">
+        <div class="attribution">
+          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+          Coded by <a href="https://www.frontendmentor.io/profile/zharifzakaria">Zharif Zakaria</a>.
+        </div>
       </div>
     </div>
 
@@ -50,12 +72,8 @@
       <img src="./images/image-hero-desktop.png" alt="image-hero-desktop">
     </div>
   </main>
-
-  <footer>
-    <div class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="#">Your Name Here</a>.
-    </div>
-  </footer>
 </body>
+
+<script src="./js/script.js"></script>
+
 </html>
