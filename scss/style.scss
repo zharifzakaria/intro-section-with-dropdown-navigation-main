@@ -216,7 +216,7 @@ main {
 
         @media only screen and (max-width: 912px) {
           font-size: 2.25em;
-          max-width: 375px;
+          max-width: 370px;
           width: 100%;
           margin-top: 50px;
           text-align: center;
@@ -354,10 +354,23 @@ main {
 
     li {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       padding: 13px 0;
       color: hsl(0, 0%, 41%);
       cursor: pointer;
+
+      .submenu-1,
+      .submenu-2 {
+        width: 100%;
+        padding-top: 20px;
+        transition: all .3s ease-in;
+
+        div {
+          padding: 5px 0;
+          padding-left: 45px;
+        }
+      }
     }
   }
 }

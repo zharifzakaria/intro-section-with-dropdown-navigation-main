@@ -213,7 +213,7 @@ main .text .header h1 {
 @media only screen and (max-width: 912px) {
   main .text .header h1 {
     font-size: 2.25em;
-    max-width: 375px;
+    max-width: 370px;
     width: 100%;
     margin-top: 50px;
     text-align: center;
@@ -365,10 +365,24 @@ main .featured-image {
 
 .mobile-container .sub__menu li {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   padding: 13px 0;
   color: dimgray;
   cursor: pointer;
+}
+
+.mobile-container .sub__menu li .submenu-1,
+.mobile-container .sub__menu li .submenu-2 {
+  width: 100%;
+  padding-top: 20px;
+  transition: all .3s ease-in;
+}
+
+.mobile-container .sub__menu li .submenu-1 div,
+.mobile-container .sub__menu li .submenu-2 div {
+  padding: 5px 0;
+  padding-left: 45px;
 }
 
 .desktop-only {

@@ -33,23 +33,6 @@ openMenuButton.addEventListener("touchstart", () => {
   const mobileMenu = document.createElement("div");
   mobileMenu.classList.add("mobile-container");
 
-  //   <div id="submenu1" class="menu__list__sub1">
-  //   <ul class="sub__menu">
-  //     <li class="sub__item"><span class="icon icon-todo"></span>Todo List</li>
-  //     <li class="sub__item"><span class="icon icon-calendar"></span>Calendar</li>
-  //     <li class="sub__item"><span class="icon icon-reminders"></span>Reminders</li>
-  //     <li class="sub__item"><span class="icon icon-planning"></span>Planning</li>
-  //   </ul>
-  // </div>
-
-  // <div id="submenu2" class="menu__list__sub2">
-  //   <ul class="sub__menu">
-  //     <li class="sub__item">History</li>
-  //     <li class="sub__item">Our Team</li>
-  //     <li class="sub__item">Blog</li>
-  //   </ul>
-  // </div>
-
   const mainMenuArray = [
     {
       name: "Features",
@@ -69,23 +52,39 @@ openMenuButton.addEventListener("touchstart", () => {
     },
   ];
 
-  const subMmenuArray = [
-    {
-      name: "Todo List",
-      class: "todo",
-    },
-    {
-      name: "Calendar",
-      class: "calendar",
-    },
-    {
-      name: "Reminders",
-      class: "reminders",
-    },
-    {
-      name: "Planning",
-      class: "planning",
-    },
+  const subMenuArray = [
+    [
+      {
+        name: "Todo List",
+        class: "todo",
+      },
+      {
+        name: "Calendar",
+        class: "calendar",
+      },
+      {
+        name: "Reminders",
+        class: "reminders",
+      },
+      {
+        name: "Planning",
+        class: "planning",
+      },
+    ],
+    [
+      {
+        name: "History",
+        class: "history",
+      },
+      {
+        name: "Our Team",
+        class: "ourteam",
+      },
+      {
+        name: "Blog",
+        class: "blog",
+      },
+    ],
   ];
 
   const subMenu1 = document.createElement("div");
@@ -95,14 +94,16 @@ openMenuButton.addEventListener("touchstart", () => {
 
   mainMenuArray.forEach((el) => {
     const li = document.createElement("li");
+    li.classList.add(`submenu-icon`);
     li.classList.add(`icon-${el.class}`);
     li.innerHTML = el.name;
     menu1Ul.appendChild(li);
 
-    if (el.name === 'Features' || el.name === 'Company') {
-      const arrowDown = document.createElement('img');
-      arrowDown.src = './images/icon-arrow-down.svg';
-      arrowDown.style.paddingLeft = '8px';
+    if (el.name === "Features" || el.name === "Company") {
+      li.id = el.name;
+      const arrowDown = document.createElement("img");
+      arrowDown.src = "./images/icon-arrow-down.svg";
+      arrowDown.style.paddingLeft = "16px";
       li.appendChild(arrowDown);
     }
   });
@@ -131,4 +132,39 @@ openMenuButton.addEventListener("touchstart", () => {
     mobileMenu.style.opacity = 1;
     blocker.style.opacity = 0.6;
   }, 100);
+
+  const subMenu = document.querySelectorAll(".submenu-icon");
+  subMenu.forEach((el) => {
+    el.addEventListener("touchstart", (e) => {
+      if (e.target.innerText === "Features") {
+        toggleSubMenu(1, subMenuArray[0]);
+      } else if (e.target.innerText === "Company") {
+        toggleSubMenu(2, subMenuArray[1]);
+      } else return;
+    });
+  });
 });
+
+function toggleSubMenu(x, array) {
+  if (x === 1) {
+    const subMenu1 = document.createElement("div");
+    subMenu1.classList.add("submenu-1");
+    document.getElementById("Features").appendChild(subMenu1);
+
+    array.forEach((el) => {
+      const div = document.createElement("div");
+      div.innerText = el.name;
+      subMenu1.appendChild(div);
+    });
+  } else {
+    const subMenu2 = document.createElement("div");
+    subMenu2.classList.add("submenu-2");
+    document.getElementById("Company").appendChild(subMenu2);
+
+    array.forEach((el) => {
+      const div = document.createElement("div");
+      div.innerText = el.name;
+      subMenu2.appendChild(div);
+    });
+  }
+}
