@@ -97,6 +97,7 @@ openMenuButton.addEventListener("touchstart", () => {
     li.classList.add(`submenu-icon`);
     li.classList.add(`icon-${el.class}`);
     li.innerHTML = el.name;
+    li.setAttribute("data-show", "false");
     menu1Ul.appendChild(li);
 
     if (el.name === "Features" || el.name === "Company") {
@@ -134,33 +135,33 @@ openMenuButton.addEventListener("touchstart", () => {
   }, 100);
 
   const subMenu = document.querySelectorAll(".submenu-icon");
+
   subMenu.forEach((el) => {
     el.addEventListener("touchstart", (e) => {
+      // if (e.target !== e.currentTarget) return;
       if (e.target.innerText === "Features") {
-        toggleSubMenu(1, subMenuArray[0]);
+        openSubMenu(e, 1, subMenuArray[0]);
       } else if (e.target.innerText === "Company") {
-        toggleSubMenu(2, subMenuArray[1]);
-      } else return;
+        openSubMenu(e, 2, subMenuArray[1]);
+      }
     });
   });
 });
 
-function toggleSubMenu(x, array) {
+function openSubMenu(e, x, array) {
   if (x === 1) {
     const subMenu1 = document.createElement("div");
     subMenu1.classList.add("submenu-1");
     document.getElementById("Features").appendChild(subMenu1);
-
     array.forEach((el) => {
       const div = document.createElement("div");
       div.innerText = el.name;
       subMenu1.appendChild(div);
     });
-  } else {
+  } else if (x === 2) {
     const subMenu2 = document.createElement("div");
     subMenu2.classList.add("submenu-2");
     document.getElementById("Company").appendChild(subMenu2);
-
     array.forEach((el) => {
       const div = document.createElement("div");
       div.innerText = el.name;
